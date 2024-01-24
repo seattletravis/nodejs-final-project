@@ -23,11 +23,16 @@ public_users.get('/isbn/:isbn', function (req, res) {
 
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
-	const sendThis = [];
-	for (const [key, value] of Object.entries(books)) {
-		sendThis.push(key);
+	const keys = [];
+	for (const [key] of Object.entries(books)) {
+		keys.push(key);
 	}
-	res.send(sendThis);
+	keys.forEach((el) => {
+		console.log(books[el].author);
+		if (req.params.author === books[el].author) {
+			res.send(books[el]);
+		}
+	});
 });
 
 // Get all books based on title
