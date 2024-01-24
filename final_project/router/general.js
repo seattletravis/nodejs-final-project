@@ -25,7 +25,7 @@ public_users.get('/isbn/:isbn', function (req, res) {
 public_users.get('/author/:author', function (req, res) {
 	const author = req.params.author;
 	const keys = [];
-	for (const [key, value] of Object.entries(books)) {
+	for (const [key, _] of Object.entries(books)) {
 		keys.push(key);
 	}
 	keys.forEach((el) => {
@@ -39,7 +39,7 @@ public_users.get('/author/:author', function (req, res) {
 public_users.get('/title/:title', function (req, res) {
 	const title = req.params.title;
 	const keys = [];
-	for (const [key, value] of Object.entries(books)) {
+	for (const [key, _] of Object.entries(books)) {
 		keys.push(key);
 	}
 	keys.forEach((el) => {
