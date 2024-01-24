@@ -22,8 +22,13 @@ public_users.get('/isbn/:isbn', function (req, res) {
 
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
-	const key = 1;
-	res.send(books[key]);
+	const keys = [1, 2, 3];
+	const key = 0;
+	if (keys.includes(key)) {
+		res.send(books[key]);
+	} else {
+		res.send('No books by that Author.');
+	}
 });
 
 // Get all books based on title
