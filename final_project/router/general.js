@@ -1,5 +1,6 @@
 const express = require('express');
 let books = require('./booksdb.js');
+const { send } = require('vite');
 let isValid = require('./auth_users.js').isValid;
 let users = require('./auth_users.js').users;
 const public_users = express.Router();
@@ -22,13 +23,11 @@ public_users.get('/isbn/:isbn', function (req, res) {
 
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
-	const keys = [1, 2, 3];
-	const key = 0;
-	if (keys.includes(key)) {
-		res.send(books[key]);
-	} else {
-		res.send('No books by that Author.');
+	const sendThis = [];
+	for (const [key, value] of Object.entries(books)) {
+		sendThis.push(key);
 	}
+	res.send(sendThis);
 });
 
 // Get all books based on title
