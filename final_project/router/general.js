@@ -23,13 +23,13 @@ public_users.get('/isbn/:isbn', function (req, res) {
 
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
+	const author = req.params.author;
 	const keys = [];
-	for (const [key] of Object.entries(books)) {
+	for (const [key, value] of Object.entries(books)) {
 		keys.push(key);
 	}
 	keys.forEach((el) => {
-		console.log(books[el].author);
-		if (req.params.author === books[el].author) {
+		if (author === books[el].author) {
 			res.send(books[el]);
 		}
 	});
