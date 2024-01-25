@@ -10,18 +10,18 @@ public_users.post('/register', (req, res) => {
 	return res.status(300).json({ message: 'Yet to be implemented' });
 });
 
-// Get the book list available in the shop
+// Get the book list available in the shop - DONE
 public_users.get('/', function (req, res) {
 	res.send(JSON.stringify(books, null, 4));
 });
 
-// Get book details based on ISBN
+// Get book details based on ISBN - DONE
 public_users.get('/isbn/:isbn', function (req, res) {
 	const isbn = req.params.isbn;
 	res.send(books[isbn]);
 });
 
-// Get book details based on author
+// Get book details based on author - DONE
 public_users.get('/author/:author', function (req, res) {
 	const author = req.params.author;
 	const keys = [];
@@ -35,7 +35,7 @@ public_users.get('/author/:author', function (req, res) {
 	});
 });
 
-// Get all books based on title
+// Get all books based on title - DONE
 public_users.get('/title/:title', function (req, res) {
 	const title = req.params.title;
 	const keys = [];
